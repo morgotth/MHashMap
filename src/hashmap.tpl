@@ -1,13 +1,13 @@
 #include "hashmap.h"
 #include <iostream>
 
-template <class Value>
+template <typename Value>
 HashMap<Value>::HashMap() : nb_val(0)
                             ,nb_val_max(MAX)
                             ,tab(new Cell<Value>[nb_val_max])
 {}
 
-template <class Value>
+template <typename Value>
 HashMap<Value>::HashMap(const Nstring &key,const Value &value) : nb_val(0)
 															,nb_val_max(MAX)
 															,tab(new Cell<Value>[nb_val_max])
@@ -15,20 +15,20 @@ HashMap<Value>::HashMap(const Nstring &key,const Value &value) : nb_val(0)
 	insert(key,value);
 }
 
-template <class Value>
+template <typename Value>
 HashMap<Value>::~HashMap()
 {
     delete []tab;
 }
 
-template <class Value>
+template <typename Value>
 void HashMap<Value>::insert(const Nstring &key, const Value &value)
 {
     int i = hash(key);
     tab[i%nb_val_max].set(key,value);
 }
 
-template <class Value>
+template <typename Value>
 int HashMap<Value>::hash(const Nstring &key) const
 {
     int hash=0;
@@ -38,7 +38,7 @@ int HashMap<Value>::hash(const Nstring &key) const
     return hash;
 }
 
-template <class Value>
+template <typename Value>
 Value HashMap<Value>::get(const Nstring &key) const throw (NstringException)
 {
     int i = hash(key);

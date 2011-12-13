@@ -22,5 +22,5 @@ public:
 };
 
 //pour resourdre le probleme des templates//cf export
-#include "hashmap.tpp"
+#include "hashmap.tpl"
 #endif // HASH_H_INCLUDED
